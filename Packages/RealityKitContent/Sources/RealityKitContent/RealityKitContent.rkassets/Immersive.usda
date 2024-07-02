@@ -7,44 +7,509 @@
 
 def Xform "Root"
 {
-    reorder nameChildren = ["Sphere_Left", "Sphere_Right", "GridMaterial"]
-    def Sphere "Sphere_Right" (
+    reorder nameChildren = ["Sphere_Left", "Sphere_Right", "GridMaterial", "Cube", "Material", "capncrunch", "SwellMaterial", "SwellMaterial"]
+    def "capncrunch" (
         active = true
         prepend apiSchemas = ["MaterialBindingAPI"]
+        references = @capncrunch.usdz@
     )
     {
-        rel material:binding = </Root/GridMaterial/GridMaterial> (
+        rel material:binding = </Root/capncrunch/Materials/Texture> (
             bindMaterialAs = "weakerThanDescendants"
         )
-        double radius = 0.1
-        quatf xformOp:orient = (1, 0, 0, 0)
         float3 xformOp:scale = (1, 1, 1)
-        float3 xformOp:translate = (0.5, 1.5, -1.5)
+        float3 xformOp:translate = (0, 0, 0)
         uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+
+        over "Materials"
+        {
+            over "Texture"
+            {
+                token inputs:frame:stPrimvarName (
+                    customData = {
+                        dictionary realitykit = {
+                            float2 positionInSubgraph = (886.5, 1191.375)
+                            int stackingOrderInSubgraph = 4
+                        }
+                    }
+                )
+                token outputs:mtlx:surface.connect = </Root/capncrunch/Materials/Texture/PreviewSurface.outputs:out>
+                token outputs:realitykit:vertex.connect = </Root/capncrunch/Materials/Texture/GeometryModifier.outputs:out>
+                token outputs:surface.connect = </Root/capncrunch/Materials/Texture/surfaceShader.outputs:surface>
+                float2 ui:nodegraph:realitykit:subgraphOutputs:pos = (1684.75, 127.96875)
+                int ui:nodegraph:realitykit:subgraphOutputs:stackingOrder = 99
+
+                over "surfaceShader" (
+                    active = false
+                )
+                {
+                }
+
+                def Shader "PreviewSurface"
+                {
+                    uniform token info:id = "ND_UsdPreviewSurface_surfaceshader"
+                    token outputs:out
+                    float2 ui:nodegraph:node:pos = (1342.9375, 62.1875)
+                    int ui:nodegraph:node:stackingOrder = 129
+                }
+
+                def Shader "GeometryModifier"
+                {
+                    uniform token info:id = "ND_realitykit_geometrymodifier_2_0_vertexshader"
+                    float3 inputs:bitangent
+                    color4f inputs:color
+                    float3 inputs:modelPositionOffset.connect = </Root/capncrunch/Materials/Texture/IfGreater_1.outputs:out>
+                    float3 inputs:normal
+                    float2 inputs:uv0
+                    float2 inputs:uv1
+                    float4 inputs:uv2
+                    float4 inputs:uv3
+                    float4 inputs:uv4
+                    float4 inputs:uv5
+                    float4 inputs:uv6
+                    float4 inputs:uv7
+                    token outputs:out
+                    float2 ui:nodegraph:node:pos = (1382, 432.4375)
+                    int ui:nodegraph:node:stackingOrder = 109
+                }
+
+                def Shader "Separate3"
+                {
+                    uniform token info:id = "ND_separate3_vector3"
+                    float3 inputs:in.connect = </Root/capncrunch/Materials/Texture/Position.outputs:out>
+                    float outputs:outx
+                    float outputs:outy
+                    float outputs:outz
+                    float2 ui:nodegraph:node:pos = (536, 318)
+                    int ui:nodegraph:node:stackingOrder = 78
+                }
+
+                def Shader "Position"
+                {
+                    uniform token info:id = "ND_position_vector3"
+                    string inputs:space = "object"
+                    float3 outputs:out
+                    float2 ui:nodegraph:node:pos = (315.75, 318)
+                    int ui:nodegraph:node:stackingOrder = 58
+                }
+
+                def Shader "IfGreater"
+                {
+                    uniform token info:id = "ND_ifgreater_vector3"
+                    float3 inputs:in1 = (0, 0, 0)
+                    float3 inputs:in1.connect = </Root/capncrunch/Materials/Texture/Multiply_1.outputs:out>
+                    float3 inputs:in2.connect = None
+                    float inputs:value1 = 0.1
+                    float inputs:value1.connect = </Root/capncrunch/Materials/Texture/Separate3.outputs:outy>
+                    float inputs:value2.connect = </Root/capncrunch/Materials/Texture/Remap.outputs:out>
+                    float3 outputs:out
+                    float2 ui:nodegraph:node:pos = (793.58594, 580.3008)
+                    int ui:nodegraph:node:stackingOrder = 184
+                }
+
+                def Shader "Normal"
+                {
+                    uniform token info:id = "ND_normal_vector3"
+                    string inputs:space = "object"
+                    float3 outputs:out
+                    float2 ui:nodegraph:node:pos = (75.04297, 660.78125)
+                    int ui:nodegraph:node:stackingOrder = 237
+                }
+
+                def Shader "Time"
+                {
+                    uniform token info:id = "ND_time_float"
+                    float outputs:out
+                    float2 ui:nodegraph:node:pos = (-183.92188, 436.65625)
+                    int ui:nodegraph:node:stackingOrder = 330
+                }
+
+                def Shader "Cos"
+                {
+                    uniform token info:id = "ND_cos_float"
+                    float inputs:in.connect = </Root/capncrunch/Materials/Texture/Multiply_4.outputs:out>
+                    float outputs:out
+                    float2 ui:nodegraph:node:pos = (105.07031, 436.83203)
+                    int ui:nodegraph:node:stackingOrder = 218
+                }
+
+                def Shader "Remap"
+                {
+                    uniform token info:id = "ND_remap_float"
+                    float inputs:in.connect = </Root/capncrunch/Materials/Texture/Cos.outputs:out>
+                    float inputs:inhigh
+                    float inputs:inlow = -1
+                    float inputs:outhigh = 0.33
+                    float inputs:outlow
+                    float outputs:out
+                    float2 ui:nodegraph:node:pos = (250.67578, 458.46484)
+                    int ui:nodegraph:node:stackingOrder = 220
+                }
+
+                def Shader "Subtract"
+                {
+                    uniform token info:id = "ND_subtract_float"
+                    float inputs:in1.connect = </Root/capncrunch/Materials/Texture/Separate3.outputs:outy>
+                    float inputs:in2 = 0.05
+                    float outputs:out
+                    float2 ui:nodegraph:node:pos = (792.5, 290.5)
+                    int ui:nodegraph:node:stackingOrder = 305
+                }
+
+                def Shader "IfGreater_1"
+                {
+                    uniform token info:id = "ND_ifgreater_vector3"
+                    float3 inputs:in1 = (-0.03, 0, -0.03)
+                    float3 inputs:in1.connect = </Root/capncrunch/Materials/Texture/IfGreater.outputs:out>
+                    float3 inputs:in2.connect = None
+                    float inputs:value1.connect = </Root/capncrunch/Materials/Texture/Remap.outputs:out>
+                    float inputs:value2.connect = </Root/capncrunch/Materials/Texture/Subtract.outputs:out>
+                    float3 outputs:out
+                    float2 ui:nodegraph:node:pos = (1062.5, 432.4375)
+                    int ui:nodegraph:node:stackingOrder = 117
+                }
+
+                def Shader "Subtract_1"
+                {
+                    uniform token info:id = "ND_subtract_float"
+                    float inputs:in1.connect = </Root/capncrunch/Materials/Texture/Separate3.outputs:outy>
+                    float inputs:in2.connect = </Root/capncrunch/Materials/Texture/Remap.outputs:out>
+                    float outputs:out
+                    float2 ui:nodegraph:node:pos = (357.01562, 604.6797)
+                    int ui:nodegraph:node:stackingOrder = 281
+                }
+
+                def Shader "Multiply"
+                {
+                    uniform token info:id = "ND_multiply_vector3FA"
+                    prepend float3 inputs:in1.connect = </Root/capncrunch/Materials/Texture/Normal.outputs:out>
+                    float inputs:in2.connect = </Root/capncrunch/Materials/Texture/Remap_1.outputs:out>
+                    float3 outputs:out
+                    float2 ui:nodegraph:node:pos = (513.8242, 671.3125)
+                    int ui:nodegraph:node:stackingOrder = 257
+                }
+
+                def Shader "Multiply_1"
+                {
+                    uniform token info:id = "ND_multiply_vector3"
+                    float3 inputs:in1.connect = </Root/capncrunch/Materials/Texture/Multiply.outputs:out>
+                    float3 inputs:in2 = (1, 0, 1)
+                    float3 outputs:out
+                    float2 ui:nodegraph:node:pos = (593.91016, 715.1367)
+                    int ui:nodegraph:node:stackingOrder = 228
+                }
+
+                def Shader "Cos_1"
+                {
+                    uniform token info:id = "ND_cos_float"
+                    float inputs:in.connect = </Root/capncrunch/Materials/Texture/Multiply_2.outputs:out>
+                    float outputs:out
+                    float2 ui:nodegraph:node:pos = (250.8789, 762.6875)
+                    int ui:nodegraph:node:stackingOrder = 326
+                }
+
+                def Shader "Remap_1"
+                {
+                    uniform token info:id = "ND_remap_float"
+                    float inputs:in.connect = </Root/capncrunch/Materials/Texture/Multiply_3.outputs:out>
+                    float inputs:inhigh = 1
+                    float inputs:inlow = -1
+                    float inputs:outhigh = 0.01
+                    float inputs:outlow
+                    float outputs:out
+                    float2 ui:nodegraph:node:pos = (445.14062, 878.2617)
+                    int ui:nodegraph:node:stackingOrder = 335
+                }
+
+                def Shader "Multiply_2"
+                {
+                    uniform token info:id = "ND_multiply_float"
+                    float inputs:in1.connect = </Root/capncrunch/Materials/Texture/Subtract_1.outputs:out>
+                    float inputs:in2 = 133
+                    float outputs:out
+                    float2 ui:nodegraph:node:pos = (123.31641, 800.0703)
+                    int ui:nodegraph:node:stackingOrder = 324
+                }
+
+                def Shader "Multiply_3"
+                {
+                    uniform token info:id = "ND_multiply_float"
+                    float inputs:in1.connect = </Root/capncrunch/Materials/Texture/Cos_1.outputs:out>
+                    float inputs:in2 = -1
+                    float outputs:out
+                    float2 ui:nodegraph:node:pos = (319.71484, 869.3203)
+                    int ui:nodegraph:node:stackingOrder = 328
+                }
+
+                def Shader "Multiply_4"
+                {
+                    uniform token info:id = "ND_multiply_float"
+                    float inputs:in1.connect = </Root/capncrunch/Materials/Texture/Time.outputs:out>
+                    float inputs:in2 = 1
+                    float outputs:out
+                    float2 ui:nodegraph:node:pos = (-39.003906, 470.54297)
+                    int ui:nodegraph:node:stackingOrder = 331
+                }
+            }
+        }
+
+        over "Geometry"
+        {
+            over "Mesh" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </Root/SwellMaterial> (
+                    bindMaterialAs = "weakerThanDescendants"
+                )
+            }
+        }
     }
 
-    def Sphere "Sphere_Left" (
-        active = true
-        prepend apiSchemas = ["MaterialBindingAPI"]
-    )
+    def Material "SwellMaterial"
     {
-        rel material:binding = </Root/GridMaterial/GridMaterial> (
-            bindMaterialAs = "weakerThanDescendants"
+        float inputs:Amplitude = 0.01 (
+            customData = {
+                dictionary realitykit = {
+                    float2 positionInSubgraph = (-1186.2618, 1012.3545)
+                    int stackingOrderInSubgraph = 842
+                }
+            }
         )
-        double radius = 0.1
-        quatf xformOp:orient = (1, 0, 0, 0)
-        float3 xformOp:scale = (1, 1, 1)
-        float3 xformOp:translate = (-0.5, 1.5, -1.5)
-        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
-    }
+        asset inputs:ShaderInputImage = @@ (
+            customData = {
+                dictionary realitykit = {
+                    float2 positionInSubgraph = (-813.61774, -102.0102)
+                    int stackingOrderInSubgraph = 791
+                }
+            }
+        )
+        float inputs:Window = 0.05 (
+            customData = {
+                dictionary realitykit = {
+                    float2 positionInSubgraph = (-787.52344, 190.83594)
+                    int stackingOrderInSubgraph = 842
+                }
+            }
+        )
+        token outputs:mtlx:surface.connect = </Root/SwellMaterial/PreviewSurface.outputs:out>
+        token outputs:realitykit:vertex.connect = </Root/SwellMaterial/GeometryModifier.outputs:out>
+        float2 ui:nodegraph:realitykit:subgraphOutputs:pos = (335.25, 100.5)
 
-    def "GridMaterial" (
-        active = true
-        prepend references = @Materials/GridMaterial.usda@
-    )
-    {
-        float3 xformOp:scale = (1, 1, 1)
-        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+        def Shader "PreviewSurface"
+        {
+            uniform token info:id = "ND_UsdPreviewSurface_surfaceshader"
+            color3f inputs:diffuseColor.connect = </Root/SwellMaterial/Image.outputs:out>
+            float inputs:metallic
+            float inputs:roughness
+            token outputs:out
+            float2 ui:nodegraph:node:pos = (71.00199, 41.375694)
+            int ui:nodegraph:node:stackingOrder = 732
+            string[] ui:nodegraph:realitykit:node:attributesShowingChildren = ["inputs:diffuseColor"]
+        }
+
+        def Shader "Remap_1" (
+            references = </Root/capncrunch/Materials/Texture/Remap_1>
+        )
+        {
+            uniform token info:id = "ND_remap_float"
+            float inputs:in.connect = </Root/SwellMaterial/Multiply_3.outputs:out>
+            float inputs:outhigh = 0.01
+            float inputs:outhigh.connect = </Root/SwellMaterial.inputs:Amplitude>
+            float2 ui:nodegraph:node:pos = (-922.00183, 855.2844)
+            int ui:nodegraph:node:stackingOrder = 814
+        }
+
+        def Shader "Multiply_1" (
+            references = </Root/capncrunch/Materials/Texture/Multiply_1>
+        )
+        {
+            uniform token info:id = "ND_multiply_vector3"
+            float3 inputs:in1.connect = </Root/SwellMaterial/Multiply.outputs:out>
+            float2 ui:nodegraph:node:pos = (-773.2323, 692.1594)
+            int ui:nodegraph:node:stackingOrder = 729
+        }
+
+        def Shader "Normal" (
+            references = </Root/capncrunch/Materials/Texture/Normal>
+        )
+        {
+            uniform token info:id = "ND_normal_vector3"
+            float2 ui:nodegraph:node:pos = (-1292.0995, 637.80396)
+            int ui:nodegraph:node:stackingOrder = 729
+        }
+
+        def Shader "Cos" (
+            references = </Root/capncrunch/Materials/Texture/Cos>
+        )
+        {
+            uniform token info:id = "ND_cos_float"
+            float inputs:in.connect = </Root/SwellMaterial/Multiply_4.outputs:out>
+            float2 ui:nodegraph:node:pos = (-1345.4081, 382.2063)
+            int ui:nodegraph:node:stackingOrder = 821
+        }
+
+        def Shader "Subtract" (
+            references = </Root/capncrunch/Materials/Texture/Subtract>
+        )
+        {
+            uniform token info:id = "ND_subtract_float"
+            float inputs:in1.connect = </Root/SwellMaterial/Separate3.outputs:outy>
+            float inputs:in2.connect = </Root/SwellMaterial.inputs:Window>
+            float2 ui:nodegraph:node:pos = (-574.64246, 267.5227)
+            int ui:nodegraph:node:stackingOrder = 841
+        }
+
+        def Shader "Separate3" (
+            references = </Root/capncrunch/Materials/Texture/Separate3>
+        )
+        {
+            uniform token info:id = "ND_separate3_vector3"
+            float3 inputs:in.connect = </Root/SwellMaterial/Position.outputs:out>
+            float2 ui:nodegraph:node:pos = (-831.14246, 295.0227)
+            int ui:nodegraph:node:stackingOrder = 729
+        }
+
+        def Shader "IfGreater_1" (
+            references = </Root/capncrunch/Materials/Texture/IfGreater_1>
+        )
+        {
+            uniform token info:id = "ND_ifgreater_vector3"
+            float3 inputs:in1.connect = </Root/SwellMaterial/IfGreater.outputs:out>
+            float inputs:value1.connect = </Root/SwellMaterial/Remap.outputs:out>
+            float inputs:value2.connect = </Root/SwellMaterial/Subtract.outputs:out>
+            float2 ui:nodegraph:node:pos = (-304.6425, 409.4602)
+            int ui:nodegraph:node:stackingOrder = 729
+        }
+
+        def Shader "Multiply_4" (
+            references = </Root/capncrunch/Materials/Texture/Multiply_4>
+        )
+        {
+            uniform token info:id = "ND_multiply_float"
+            float inputs:in1.connect = </Root/SwellMaterial/Time.outputs:out>
+            float inputs:in2 = 1
+            float inputs:in2.connect = None
+            float2 ui:nodegraph:node:pos = (-1467.8885, 383.0149)
+            int ui:nodegraph:node:stackingOrder = 833
+        }
+
+        def Shader "Time" (
+            references = </Root/capncrunch/Materials/Texture/Time>
+        )
+        {
+            uniform token info:id = "ND_time_float"
+            float2 ui:nodegraph:node:pos = (-1625.9725, 374.45187)
+            int ui:nodegraph:node:stackingOrder = 819
+        }
+
+        def Shader "Multiply" (
+            references = </Root/capncrunch/Materials/Texture/Multiply>
+        )
+        {
+            uniform token info:id = "ND_multiply_vector3FA"
+            float3 inputs:in1.connect = </Root/SwellMaterial/Normal.outputs:out>
+            float inputs:in2.connect = </Root/SwellMaterial/Remap_1.outputs:out>
+            float2 ui:nodegraph:node:pos = (-853.31824, 648.3352)
+            int ui:nodegraph:node:stackingOrder = 729
+        }
+
+        def Shader "Remap" (
+            references = </Root/capncrunch/Materials/Texture/Remap>
+        )
+        {
+            uniform token info:id = "ND_remap_float"
+            float inputs:in.connect = </Root/SwellMaterial/Cos.outputs:out>
+            float inputs:inhigh = 1
+            float inputs:inlow = -1
+            float2 ui:nodegraph:node:pos = (-1116.4667, 435.48755)
+            int ui:nodegraph:node:stackingOrder = 837
+        }
+
+        def Shader "Cos_1" (
+            references = </Root/capncrunch/Materials/Texture/Cos_1>
+        )
+        {
+            uniform token info:id = "ND_cos_float"
+            float inputs:in.connect = </Root/SwellMaterial/Multiply_2.outputs:out>
+            float2 ui:nodegraph:node:pos = (-1116.2635, 739.7102)
+            int ui:nodegraph:node:stackingOrder = 729
+        }
+
+        def Shader "Subtract_1" (
+            references = </Root/capncrunch/Materials/Texture/Subtract_1>
+        )
+        {
+            uniform token info:id = "ND_subtract_float"
+            float inputs:in1.connect = </Root/SwellMaterial/Separate3.outputs:outy>
+            float inputs:in2.connect = </Root/SwellMaterial/Remap.outputs:out>
+            float2 ui:nodegraph:node:pos = (-1010.12683, 581.7024)
+            int ui:nodegraph:node:stackingOrder = 729
+        }
+
+        def Shader "Position" (
+            references = </Root/capncrunch/Materials/Texture/Position>
+        )
+        {
+            uniform token info:id = "ND_position_vector3"
+            float2 ui:nodegraph:node:pos = (-1051.3925, 295.0227)
+            int ui:nodegraph:node:stackingOrder = 729
+        }
+
+        def Shader "IfGreater" (
+            references = </Root/capncrunch/Materials/Texture/IfGreater>
+        )
+        {
+            uniform token info:id = "ND_ifgreater_vector3"
+            float3 inputs:in1.connect = </Root/SwellMaterial/Multiply_1.outputs:out>
+            float inputs:value1.connect = </Root/SwellMaterial/Separate3.outputs:outy>
+            float inputs:value2.connect = </Root/SwellMaterial/Remap.outputs:out>
+            float2 ui:nodegraph:node:pos = (-573.5565, 557.3235)
+            int ui:nodegraph:node:stackingOrder = 729
+        }
+
+        def Shader "Multiply_3" (
+            references = </Root/capncrunch/Materials/Texture/Multiply_3>
+        )
+        {
+            uniform token info:id = "ND_multiply_float"
+            float inputs:in1.connect = </Root/SwellMaterial/Cos_1.outputs:out>
+            float inputs:in2 = -1
+            float2 ui:nodegraph:node:pos = (-1047.4276, 846.343)
+            int ui:nodegraph:node:stackingOrder = 840
+        }
+
+        def Shader "GeometryModifier" (
+            references = </Root/capncrunch/Materials/Texture/GeometryModifier>
+        )
+        {
+            uniform token info:id = "ND_realitykit_geometrymodifier_2_0_vertexshader"
+            float3 inputs:modelPositionOffset.connect = </Root/SwellMaterial/IfGreater_1.outputs:out>
+            float2 ui:nodegraph:node:pos = (14.857528, 409.4602)
+            int ui:nodegraph:node:stackingOrder = 729
+        }
+
+        def Shader "Image"
+        {
+            uniform token info:id = "ND_image_color3"
+            color3f inputs:default
+            asset inputs:file.connect = </Root/SwellMaterial.inputs:ShaderInputImage>
+            string inputs:filtertype
+            float2 inputs:texcoord
+            color3f outputs:out
+            float2 ui:nodegraph:node:pos = (-541.99274, -69.600044)
+            int ui:nodegraph:node:stackingOrder = 791
+        }
+
+        def Shader "Multiply_2"
+        {
+            uniform token info:id = "ND_multiply_float"
+            float inputs:in1.connect = </Root/SwellMaterial/Subtract_1.outputs:out>
+            float inputs:in2 = 133
+            float outputs:out
+            float2 ui:nodegraph:node:pos = (-1250.9847, 756.6345)
+            int ui:nodegraph:node:stackingOrder = 839
+        }
     }
 }
 

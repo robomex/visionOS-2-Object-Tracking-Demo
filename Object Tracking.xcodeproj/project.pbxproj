@@ -8,26 +8,42 @@
 
 /* Begin PBXBuildFile section */
 		B103A9D12C2A0C7300D1BF60 /* RealityKitContent in Frameworks */ = {isa = PBXBuildFile; productRef = B103A9D02C2A0C7300D1BF60 /* RealityKitContent */; };
-		B103A9D32C2A0C7300D1BF60 /* Object_TrackingApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B103A9D22C2A0C7300D1BF60 /* Object_TrackingApp.swift */; };
-		B103A9D52C2A0C7300D1BF60 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B103A9D42C2A0C7300D1BF60 /* ContentView.swift */; };
+		B103A9D32C2A0C7300D1BF60 /* ObjectTrackingApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B103A9D22C2A0C7300D1BF60 /* ObjectTrackingApp.swift */; };
+		B103A9D52C2A0C7300D1BF60 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B103A9D42C2A0C7300D1BF60 /* HomeView.swift */; };
 		B103A9D72C2A0C7300D1BF60 /* AppModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B103A9D62C2A0C7300D1BF60 /* AppModel.swift */; };
 		B103A9D92C2A0C7300D1BF60 /* ToggleImmersiveSpaceButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B103A9D82C2A0C7300D1BF60 /* ToggleImmersiveSpaceButton.swift */; };
-		B103A9DB2C2A0C7300D1BF60 /* ImmersiveView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B103A9DA2C2A0C7300D1BF60 /* ImmersiveView.swift */; };
+		B103A9DB2C2A0C7300D1BF60 /* ObjectTrackingRealityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B103A9DA2C2A0C7300D1BF60 /* ObjectTrackingRealityView.swift */; };
 		B103A9DD2C2A0C7400D1BF60 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B103A9DC2C2A0C7400D1BF60 /* Assets.xcassets */; };
 		B103A9E02C2A0C7400D1BF60 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B103A9DF2C2A0C7400D1BF60 /* Preview Assets.xcassets */; };
+		B103A9F02C2B24A000D1BF60 /* ReferenceObjectLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = B103A9EF2C2B24A000D1BF60 /* ReferenceObjectLoader.swift */; };
+		B103A9F22C2B517900D1BF60 /* ErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B103A9F12C2B517900D1BF60 /* ErrorView.swift */; };
+		B19B83EB2C2E0E8D00AFA9B9 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = B19B83EA2C2E0E8D00AFA9B9 /* Constants.swift */; };
+		B1D337212C2C7A6400438BF8 /* DutchOven.referenceobject in Sources */ = {isa = PBXBuildFile; fileRef = B1D3371F2C2C7A6400438BF8 /* DutchOven.referenceobject */; };
+		B1D337222C2C7A6400438BF8 /* Box.referenceobject in Sources */ = {isa = PBXBuildFile; fileRef = B1D3371E2C2C7A6400438BF8 /* Box.referenceobject */; };
+		B1D337232C2C7A6400438BF8 /* Milk.referenceobject in Sources */ = {isa = PBXBuildFile; fileRef = B1D337202C2C7A6400438BF8 /* Milk.referenceobject */; };
+		B1D337252C2C812900438BF8 /* ObjectAnchorVisualization.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1D337242C2C812900438BF8 /* ObjectAnchorVisualization.swift */; };
+		B1D337282C2C83D200438BF8 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1D337272C2C83D200438BF8 /* Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		B103A9CB2C2A0C7300D1BF60 /* Object Tracking.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Object Tracking.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B103A9CF2C2A0C7300D1BF60 /* RealityKitContent */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = RealityKitContent; sourceTree = "<group>"; };
-		B103A9D22C2A0C7300D1BF60 /* Object_TrackingApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Object_TrackingApp.swift; sourceTree = "<group>"; };
-		B103A9D42C2A0C7300D1BF60 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		B103A9D22C2A0C7300D1BF60 /* ObjectTrackingApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObjectTrackingApp.swift; sourceTree = "<group>"; };
+		B103A9D42C2A0C7300D1BF60 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		B103A9D62C2A0C7300D1BF60 /* AppModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppModel.swift; sourceTree = "<group>"; };
 		B103A9D82C2A0C7300D1BF60 /* ToggleImmersiveSpaceButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToggleImmersiveSpaceButton.swift; sourceTree = "<group>"; };
-		B103A9DA2C2A0C7300D1BF60 /* ImmersiveView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImmersiveView.swift; sourceTree = "<group>"; };
+		B103A9DA2C2A0C7300D1BF60 /* ObjectTrackingRealityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObjectTrackingRealityView.swift; sourceTree = "<group>"; };
 		B103A9DC2C2A0C7400D1BF60 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B103A9DF2C2A0C7400D1BF60 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		B103A9E12C2A0C7400D1BF60 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B103A9EF2C2B24A000D1BF60 /* ReferenceObjectLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReferenceObjectLoader.swift; sourceTree = "<group>"; };
+		B103A9F12C2B517900D1BF60 /* ErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorView.swift; sourceTree = "<group>"; };
+		B19B83EA2C2E0E8D00AFA9B9 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		B1D3371E2C2C7A6400438BF8 /* Box.referenceobject */ = {isa = PBXFileReference; lastKnownFileType = file.referenceobject; path = Box.referenceobject; sourceTree = "<group>"; };
+		B1D3371F2C2C7A6400438BF8 /* DutchOven.referenceobject */ = {isa = PBXFileReference; lastKnownFileType = file.referenceobject; path = DutchOven.referenceobject; sourceTree = "<group>"; };
+		B1D337202C2C7A6400438BF8 /* Milk.referenceobject */ = {isa = PBXFileReference; lastKnownFileType = file.referenceobject; path = Milk.referenceobject; sourceTree = "<group>"; };
+		B1D337242C2C812900438BF8 /* ObjectAnchorVisualization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObjectAnchorVisualization.swift; sourceTree = "<group>"; };
+		B1D337272C2C83D200438BF8 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,11 +78,20 @@
 		B103A9CD2C2A0C7300D1BF60 /* Object Tracking */ = {
 			isa = PBXGroup;
 			children = (
-				B103A9D22C2A0C7300D1BF60 /* Object_TrackingApp.swift */,
-				B103A9D42C2A0C7300D1BF60 /* ContentView.swift */,
+				B1D3371B2C2C71D000438BF8 /* Models */,
+				B1D3371C2C2C72A400438BF8 /* Views */,
 				B103A9D62C2A0C7300D1BF60 /* AppModel.swift */,
+				B19B83EA2C2E0E8D00AFA9B9 /* Constants.swift */,
+				B1D337272C2C83D200438BF8 /* Extensions.swift */,
+				B103A9F12C2B517900D1BF60 /* ErrorView.swift */,
+				B103A9D42C2A0C7300D1BF60 /* HomeView.swift */,
+				B1D337242C2C812900438BF8 /* ObjectAnchorVisualization.swift */,
+				B103A9D22C2A0C7300D1BF60 /* ObjectTrackingApp.swift */,
+				B103A9DA2C2A0C7300D1BF60 /* ObjectTrackingRealityView.swift */,
+				B103A9EF2C2B24A000D1BF60 /* ReferenceObjectLoader.swift */,
 				B103A9D82C2A0C7300D1BF60 /* ToggleImmersiveSpaceButton.swift */,
-				B103A9DA2C2A0C7300D1BF60 /* ImmersiveView.swift */,
+				B143D7442C33E3150056E522 /* Utilities */,
+				B1D3371D2C2C79B000438BF8 /* Reference Objects */,
 				B103A9DC2C2A0C7400D1BF60 /* Assets.xcassets */,
 				B103A9E12C2A0C7400D1BF60 /* Info.plist */,
 				B103A9DE2C2A0C7400D1BF60 /* Preview Content */,
@@ -88,6 +113,37 @@
 				B103A9DF2C2A0C7400D1BF60 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		B143D7442C33E3150056E522 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
+		B1D3371B2C2C71D000438BF8 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		B1D3371C2C2C72A400438BF8 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		B1D3371D2C2C79B000438BF8 /* Reference Objects */ = {
+			isa = PBXGroup;
+			children = (
+				B1D3371E2C2C7A6400438BF8 /* Box.referenceobject */,
+				B1D3371F2C2C7A6400438BF8 /* DutchOven.referenceobject */,
+				B1D337202C2C7A6400438BF8 /* Milk.referenceobject */,
+			);
+			path = "Reference Objects";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -164,10 +220,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				B103A9D92C2A0C7300D1BF60 /* ToggleImmersiveSpaceButton.swift in Sources */,
-				B103A9D52C2A0C7300D1BF60 /* ContentView.swift in Sources */,
-				B103A9DB2C2A0C7300D1BF60 /* ImmersiveView.swift in Sources */,
+				B103A9D52C2A0C7300D1BF60 /* HomeView.swift in Sources */,
+				B1D337212C2C7A6400438BF8 /* DutchOven.referenceobject in Sources */,
+				B1D337252C2C812900438BF8 /* ObjectAnchorVisualization.swift in Sources */,
+				B1D337282C2C83D200438BF8 /* Extensions.swift in Sources */,
+				B1D337222C2C7A6400438BF8 /* Box.referenceobject in Sources */,
+				B1D337232C2C7A6400438BF8 /* Milk.referenceobject in Sources */,
+				B19B83EB2C2E0E8D00AFA9B9 /* Constants.swift in Sources */,
+				B103A9DB2C2A0C7300D1BF60 /* ObjectTrackingRealityView.swift in Sources */,
 				B103A9D72C2A0C7300D1BF60 /* AppModel.swift in Sources */,
-				B103A9D32C2A0C7300D1BF60 /* Object_TrackingApp.swift in Sources */,
+				B103A9F22C2B517900D1BF60 /* ErrorView.swift in Sources */,
+				B103A9D32C2A0C7300D1BF60 /* ObjectTrackingApp.swift in Sources */,
+				B103A9F02C2B24A000D1BF60 /* ReferenceObjectLoader.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -301,7 +365,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Object Tracking/Preview Content\"";
-				DEVELOPMENT_TEAM = 25A3U75D5Z;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "$(TARGET_NAME)/Info.plist";
@@ -310,7 +374,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.kalopsiac.Object-Tracking";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.example.Object-Tracking";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "xros xrsimulator";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -327,7 +391,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Object Tracking/Preview Content\"";
-				DEVELOPMENT_TEAM = 25A3U75D5Z;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "$(TARGET_NAME)/Info.plist";
@@ -336,7 +400,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.kalopsiac.Object-Tracking";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.example.Object-Tracking";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "xros xrsimulator";
 				SWIFT_EMIT_LOC_STRINGS = YES;
