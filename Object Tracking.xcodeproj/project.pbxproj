@@ -78,18 +78,10 @@
 		B103A9CD2C2A0C7300D1BF60 /* Object Tracking */ = {
 			isa = PBXGroup;
 			children = (
+				B143D7452C33F30C0056E522 /* Helpers */,
 				B1D3371B2C2C71D000438BF8 /* Models */,
 				B1D3371C2C2C72A400438BF8 /* Views */,
-				B103A9D62C2A0C7300D1BF60 /* AppModel.swift */,
-				B19B83EA2C2E0E8D00AFA9B9 /* Constants.swift */,
-				B1D337272C2C83D200438BF8 /* Extensions.swift */,
-				B103A9F12C2B517900D1BF60 /* ErrorView.swift */,
-				B103A9D42C2A0C7300D1BF60 /* HomeView.swift */,
-				B1D337242C2C812900438BF8 /* ObjectAnchorVisualization.swift */,
 				B103A9D22C2A0C7300D1BF60 /* ObjectTrackingApp.swift */,
-				B103A9DA2C2A0C7300D1BF60 /* ObjectTrackingRealityView.swift */,
-				B103A9EF2C2B24A000D1BF60 /* ReferenceObjectLoader.swift */,
-				B103A9D82C2A0C7300D1BF60 /* ToggleImmersiveSpaceButton.swift */,
 				B143D7442C33E3150056E522 /* Utilities */,
 				B1D3371D2C2C79B000438BF8 /* Reference Objects */,
 				B103A9DC2C2A0C7400D1BF60 /* Assets.xcassets */,
@@ -118,13 +110,25 @@
 		B143D7442C33E3150056E522 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				B19B83EA2C2E0E8D00AFA9B9 /* Constants.swift */,
+				B1D337272C2C83D200438BF8 /* Extensions.swift */,
 			);
 			path = Utilities;
+			sourceTree = "<group>";
+		};
+		B143D7452C33F30C0056E522 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				B1D337242C2C812900438BF8 /* ObjectAnchorVisualization.swift */,
+				B103A9EF2C2B24A000D1BF60 /* ReferenceObjectLoader.swift */,
+			);
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 		B1D3371B2C2C71D000438BF8 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				B103A9D62C2A0C7300D1BF60 /* AppModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -132,6 +136,10 @@
 		B1D3371C2C2C72A400438BF8 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				B103A9F12C2B517900D1BF60 /* ErrorView.swift */,
+				B103A9D42C2A0C7300D1BF60 /* HomeView.swift */,
+				B103A9DA2C2A0C7300D1BF60 /* ObjectTrackingRealityView.swift */,
+				B103A9D82C2A0C7300D1BF60 /* ToggleImmersiveSpaceButton.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
