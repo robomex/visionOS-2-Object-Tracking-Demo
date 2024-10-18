@@ -315,7 +315,7 @@ class AppModel {
     
     private func processObjectUpdates(with rootEntity: Entity) async {
         guard let objectTrackingProvider else {
-            print("Error obtaining handTrackingProvider upon processHandUpdates")
+            print("Error obtaining objectTrackingProvider upon processObjectUpdates")
             
             return
         }
