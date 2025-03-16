@@ -24,6 +24,50 @@ struct ObjectTrackingApp: App {
                 }
         }
         .windowResizability(.contentSize)
+        
+        WindowGroup(id: "uses") {
+            Group {
+                Text("Use Cases")
+                    .font(.title)
+                
+                Text("""
+1. Instructions
+2. Tutorials
+3. Guided Work
+4. Assembly
+5. Construction
+6. Recipes
+7. Compliance
+8. Learning
+9. Training
+10. Upskilling
+11. Simulating
+12. Accessibility
+""")
+                .font(.headline)
+            }
+            .padding()
+        }
+        
+        WindowGroup(id: "actions") {
+            Group {
+                Text("Behaviors")
+                    .font(.title)
+                
+                Text("""
+A. Visual highlights
+B. Play a video
+C. Play a spatial 3D animation
+D. Play some audio
+E. Teleport me to a different 3D world
+F. Bring up a reference guide for what I'm looking at
+G. List the most common failures and issues related to what I'm looking at
+H... A million other things
+""")
+                .font(.headline)
+            }
+            .padding()
+        }
 
         ImmersiveSpace(id: Constants.immersiveSpaceID) {
             ObjectTrackingRealityView()

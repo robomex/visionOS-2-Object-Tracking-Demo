@@ -13,6 +13,7 @@ struct HomeView: View {
     @Environment(AppModel.self) private var appModel
     @Environment(\.dismissImmersiveSpace) private var dismissImmersiveSpace
     @Environment(\.scenePhase) private var scenePhase
+    @Environment(\.openWindow) private var openWindow
     
     var body: some View {
         Group {
@@ -78,6 +79,10 @@ struct HomeView: View {
             // Start monitoring for changes in authorization, in case a person brings the
             // Settings app to the foreground and changes authorizations there.
             await appModel.monitorSessionEvents()
+        }
+        .onAppear {
+            openWindow(id: "uses")
+            openWindow(id: "actions")
         }
     }
     
